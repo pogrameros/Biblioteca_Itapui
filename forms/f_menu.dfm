@@ -58,8 +58,8 @@ object frm_menu: Tfrm_menu
       end>
   end
   object rkGlassButton1: TrkGlassButton
-    Left = 8
-    Top = 55
+    Left = 352
+    Top = 191
     Width = 201
     Height = 137
     Caption = 'Glass'
