@@ -14,9 +14,9 @@ type
     Label1: TLabel;
     Label2: TLabel;
     DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
+    edt_descricao: TDBEdit;
   private
-    { Private declarations }
+    procedure Salvar;override;
   public
      FTitulo,FTipo_Cadastro : String;
   end;
@@ -27,5 +27,17 @@ var
 implementation
 
 {$R *.dfm}
+
+uses f_funcoes;
+
+
+
+{ Tfrm_sub_cadastro }
+
+procedure Tfrm_sub_cadastro.Salvar;
+begin
+   CampoPreenchido(edt_descricao);
+   tab_principal.FieldByName('Tipo_Cadastro').AsString := FTipo_Cadastro;
+end;
 
 end.

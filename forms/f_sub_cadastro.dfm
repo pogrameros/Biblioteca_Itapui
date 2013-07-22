@@ -8,12 +8,13 @@ inherited frm_sub_cadastro: Tfrm_sub_cadastro
   TextHeight = 13
   inherited Image1: TImage
     Width = 634
+    ExplicitWidth = 634
   end
   inherited Panel1: TPanel
     Top = 97
     Width = 634
     Height = 259
-    ExplicitTop = 159
+    ExplicitTop = 97
     ExplicitWidth = 634
     ExplicitHeight = 259
     inherited btn_salvar: TrkGlassButton
@@ -64,7 +65,7 @@ inherited frm_sub_cadastro: Tfrm_sub_cadastro
     Width = 634
     Height = 56
     ExplicitWidth = 634
-    ExplicitHeight = 117
+    ExplicitHeight = 56
     object Label1: TLabel
       Left = 13
       Top = 10
@@ -88,7 +89,7 @@ inherited frm_sub_cadastro: Tfrm_sub_cadastro
       DataSource = dts_master
       TabOrder = 0
     end
-    object DBEdit2: TDBEdit
+    object edt_descricao: TDBEdit
       Left = 132
       Top = 26
       Width = 485

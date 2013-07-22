@@ -3,7 +3,7 @@ unit f_funcoes;
 interface
 
 uses
-   SysUtils,Classes,Forms,windows,Data.DB,ZAbstractRODataset, ZAbstractDataset, ZDataset,ZSqlUpdate, StdCtrls,StrUtils;
+   SysUtils,Classes,Forms,windows,Data.DB,ZAbstractRODataset, ZAbstractDataset, ZDataset,ZSqlUpdate, StdCtrls,StrUtils,DBCtrls;
 
 type
    TFuncoes = class
@@ -35,6 +35,8 @@ function BuscaDados(Campos : string; Titulos : string; Nome_Tabela : String; Tit
 function isFieldKey(nome_campo : String) : Boolean;
 
 procedure SubCadastro(Titulo,Tipo_Cadastro : String);
+
+function CampoPreenchido(Componente : TDBEdit) : Boolean;
 
 implementation
 
@@ -254,12 +256,21 @@ begin
        with tab_principal do begin
           Close;
           SQl.Clear;
-          SQL.Add('SELECT ID, Descricao FROM subcadastro WHERE Tipo_Cadastro = ' + Tipo_Cadastro);
+          SQL.Add('SELECT ID, Descricao,Tipo_Cadastro FROM subcadastro WHERE Tipo_Cadastro = ' + Tipo_Cadastro);
           Open;
        end;
     end;
 
     frm_sub_cadastro.Show;
+end;
+
+function CampoPreenchido(Componente : TDBEdit) : Boolean;
+begin
+   if Componente.Text = '' then begin
+      Application.MessageBox('Obrigatório Preenchimento.','Aviso',MB_OK);
+      Componente.SetFocus;
+      Abort;
+   end;
 end;
 
 

@@ -274,18 +274,23 @@ inherited frm_cadastro_livros: Tfrm_cadastro_livros
     Top = 384
     object NovaCategoria1: TMenuItem
       Caption = 'Nova Categoria'
+      OnClick = NovaCategoria1Click
     end
     object NovaEditora1: TMenuItem
       Caption = 'Nova Editora'
+      OnClick = NovaEditora1Click
     end
     object NovoGnero1: TMenuItem
       Caption = 'Novo G'#234'nero'
+      OnClick = NovoGnero1Click
     end
     object NovoAutor1: TMenuItem
       Caption = 'Novo Autor'
+      OnClick = NovoAutor1Click
     end
     object NovoFornecedor1: TMenuItem
       Caption = 'Novo Fornecedor'
+      OnClick = NovoFornecedor1Click
     end
   end
 end

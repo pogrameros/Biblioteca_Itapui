@@ -47,6 +47,11 @@ type
     procedure DBEdit4KeyPress(Sender: TObject; var Key: Char);
     procedure btn_buscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure NovaCategoria1Click(Sender: TObject);
+    procedure NovaEditora1Click(Sender: TObject);
+    procedure NovoGnero1Click(Sender: TObject);
+    procedure NovoAutor1Click(Sender: TObject);
+    procedure NovoFornecedor1Click(Sender: TObject);
   private
     procedure Salvar;override;
     { Private declarations }
@@ -82,6 +87,32 @@ procedure Tfrm_cadastro_livros.FormShow(Sender: TObject);
 begin
    inherited;
    TrocaQuery(tab_principal,'SELECT * FROM Livros');
+end;
+
+procedure Tfrm_cadastro_livros.NovaCategoria1Click(Sender: TObject);
+begin
+   SubCadastro('Categoria','1');
+end;
+
+procedure Tfrm_cadastro_livros.NovaEditora1Click(Sender: TObject);
+begin
+   SubCadastro('Editoras','2');
+end;
+
+procedure Tfrm_cadastro_livros.NovoAutor1Click(Sender: TObject);
+begin
+   SubCadastro('Autores','4');
+
+end;
+
+procedure Tfrm_cadastro_livros.NovoFornecedor1Click(Sender: TObject);
+begin
+   //aguardando cadastro de fornecedores
+end;
+
+procedure Tfrm_cadastro_livros.NovoGnero1Click(Sender: TObject);
+begin
+  SubCadastro('Gêneros','3');
 end;
 
 procedure Tfrm_cadastro_livros.Salvar;
