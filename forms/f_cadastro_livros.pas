@@ -18,7 +18,7 @@ type
     Label5: TLabel;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
+    edt_titulo: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
     Label6: TLabel;
@@ -48,6 +48,7 @@ type
     procedure btn_buscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
+    procedure Salvar;override;
     { Private declarations }
   public
     { Public declarations }
@@ -81,6 +82,15 @@ procedure Tfrm_cadastro_livros.FormShow(Sender: TObject);
 begin
    inherited;
    TrocaQuery(tab_principal,'SELECT * FROM Livros');
+end;
+
+procedure Tfrm_cadastro_livros.Salvar;
+begin
+   if frm_cadastro_livros.edt_titulo.Text = '' then begin
+      Application.MessageBox('Obrigatório selecionar um Titulo.','Aviso',MB_OK);
+      frm_cadastro_livros.edt_titulo.SetFocus;
+      Abort;
+   end;
 end;
 
 end.

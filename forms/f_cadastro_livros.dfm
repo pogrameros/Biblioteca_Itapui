@@ -171,7 +171,7 @@ inherited frm_cadastro_livros: Tfrm_cadastro_livros
       Height = 21
       TabOrder = 1
     end
-    object DBEdit3: TDBEdit
+    object edt_titulo: TDBEdit
       Left = 226
       Top = 36
       Width = 543

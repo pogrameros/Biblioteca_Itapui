@@ -34,6 +34,10 @@ type
     { Private declarations }
   public
     procedure Localiza;
+
+    procedure Novo    ;virtual;
+    procedure Salvar  ;virtual;
+    procedure Alterar ;virtual;
   end;
 
 var
@@ -48,6 +52,11 @@ implementation
 uses f_menu, f_funcoes;
 
 {$R *.dfm}
+
+procedure Tfrm_form_cadastro_base.Alterar;
+begin
+
+end;
 
 procedure Tfrm_form_cadastro_base.btn_alterarClick(Sender: TObject);
 begin
@@ -64,6 +73,8 @@ begin
       end;
       //salvar
       1: begin
+         //metodo abstrato, deve ser implementado apenas na classe filho
+         Salvar;
          btn_salvar.Enabled := True;
          btn_alterar.Caption := 'Alterar';
          btn_apagar.Caption := 'Apagar';
@@ -121,6 +132,7 @@ begin
       end;
       //salvar
       1: begin
+         Salvar;
          btn_salvar.Caption := 'Novo';
          btn_alterar.Enabled := True;
          btn_apagar.Caption := 'Apagar';
@@ -135,6 +147,18 @@ end;
 procedure Tfrm_form_cadastro_base.Localiza;
 begin
    tab_principal.Locate('ID',frm_menu.pub_string_busca,[]);
+end;
+
+procedure Tfrm_form_cadastro_base.Novo;
+begin
+  inherited;
+
+end;
+
+procedure Tfrm_form_cadastro_base.Salvar;
+begin
+  inherited;
+
 end;
 
 procedure Tfrm_form_cadastro_base.SpeedButton6Click(Sender: TObject);
