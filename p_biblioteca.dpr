@@ -14,7 +14,7 @@ uses
   f_form_busca_base in 'bases\f_form_busca_base.pas' {frm_form_busca_base},
   f_cadastro_fornecedor in 'forms\f_cadastro_fornecedor.pas' {frm_form_cadastro_base1},
   f_cadastro_base in 'bases\f_cadastro_base.pas' {frm_form_cadastro_base},
-  f_sub_cadastro in 'forms\f_sub_cadastro.pas' {frm_form_cadastro_base2};
+  f_sub_cadastro in 'forms\f_sub_cadastro.pas' {frm_sub_cadastro};
 
 {$R *.res}
 

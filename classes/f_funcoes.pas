@@ -34,9 +34,11 @@ function BuscaDados(Campos : string; Titulos : string; Nome_Tabela : String; Tit
 
 function isFieldKey(nome_campo : String) : Boolean;
 
+procedure SubCadastro(Titulo,Tipo_Cadastro : String);
+
 implementation
 
-uses f_menu, f_form_busca_base;
+uses f_menu, f_form_busca_base, f_sub_cadastro;
 
 
 
@@ -240,6 +242,24 @@ begin
    if (LeftStr(nome_campo,3) = 'ID_') or (LeftStr(nome_campo,6) = 'Codigo') then begin
       Result := True;
    end;
+end;
+
+procedure SubCadastro(Titulo,Tipo_Cadastro : String);
+begin
+    frm_sub_cadastro := Tfrm_sub_cadastro.Create(Application);
+    with frm_sub_cadastro do begin
+       FTitulo := Titulo;
+       FTipo_Cadastro := Tipo_Cadastro;
+       lbl_titulo.Caption := Titulo;
+       with tab_principal do begin
+          Close;
+          SQl.Clear;
+          SQL.Add('SELECT ID, Descricao FROM subcadastro WHERE Tipo_Cadastro = ' + Tipo_Cadastro);
+          Open;
+       end;
+    end;
+
+    frm_sub_cadastro.Show;
 end;
 
 

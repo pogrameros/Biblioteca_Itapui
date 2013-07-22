@@ -1,5 +1,5 @@
-inherited frm_form_cadastro_base2: Tfrm_form_cadastro_base2
-  Caption = 'frm_form_cadastro_base2'
+inherited frm_sub_cadastro: Tfrm_sub_cadastro
+  Caption = 'frm_sub_cadastro'
   ClientHeight = 356
   ClientWidth = 634
   ExplicitWidth = 640
@@ -43,6 +43,21 @@ inherited frm_form_cadastro_base2: Tfrm_form_cadastro_base2
     inherited DBGrid1: TDBGrid
       Width = 628
       Height = 212
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'ID'
+          Title.Caption = 'C'#243'digo'
+          Width = 98
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Descricao'
+          Title.Caption = 'Descri'#231#227'o'
+          Width = 472
+          Visible = True
+        end>
     end
   end
   inherited Panel2: TPanel
@@ -69,6 +84,8 @@ inherited frm_form_cadastro_base2: Tfrm_form_cadastro_base2
       Top = 26
       Width = 105
       Height = 21
+      DataField = 'ID'
+      DataSource = dts_master
       TabOrder = 0
     end
     object DBEdit2: TDBEdit
@@ -76,6 +93,8 @@ inherited frm_form_cadastro_base2: Tfrm_form_cadastro_base2
       Top = 26
       Width = 485
       Height = 21
+      DataField = 'Descricao'
+      DataSource = dts_master
       TabOrder = 1
     end
   end

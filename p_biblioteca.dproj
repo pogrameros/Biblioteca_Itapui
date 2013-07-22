@@ -120,7 +120,7 @@
 				<Form>frm_form_cadastro_base</Form>
 			</DCCReference>
 			<DCCReference Include="forms\f_sub_cadastro.pas">
-				<Form>frm_form_cadastro_base2</Form>
+				<Form>frm_sub_cadastro</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
 			<BuildConfiguration Include="Release">

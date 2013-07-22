@@ -10,7 +10,7 @@ uses
   Vcl.DBCtrls;
 
 type
-  Tfrm_form_cadastro_base2 = class(Tfrm_form_cadastro_base)
+  Tfrm_sub_cadastro = class(Tfrm_form_cadastro_base)
     Label1: TLabel;
     Label2: TLabel;
     DBEdit1: TDBEdit;
@@ -18,11 +18,11 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
+     FTitulo,FTipo_Cadastro : String;
   end;
 
 var
-  frm_form_cadastro_base2: Tfrm_form_cadastro_base2;
+  frm_sub_cadastro: Tfrm_sub_cadastro;
 
 implementation
 
