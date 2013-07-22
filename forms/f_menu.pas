@@ -16,6 +16,7 @@ type
     zconn: TZConnection;
     StatusBar1: TStatusBar;
     rkGlassButton1: TrkGlassButton;
+    rkGlassButton2: TrkGlassButton;
     procedure FormShow(Sender: TObject);
     procedure rkGlassButton1Click(Sender: TObject);
   private

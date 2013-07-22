@@ -101,9 +101,6 @@
 				<Form>frm_form_normal</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
-			<DCCReference Include="bases\f_cadastro_base.pas">
-				<Form>frm_form_cadastro_base</Form>
-			</DCCReference>
 			<DCCReference Include="forms\f_cadastro_livros.pas">
 				<Form>frm_cadastro_livros</Form>
 				<FormType>dfm</FormType>
@@ -114,6 +111,13 @@
 			<DCCReference Include="bases\f_form_busca_base.pas">
 				<Form>frm_form_busca_base</Form>
 				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="forms\f_cadastro_fornecedor.pas">
+				<Form>frm_form_cadastro_base1</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="bases\f_cadastro_base.pas">
+				<Form>frm_form_cadastro_base</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
@@ -163,6 +167,8 @@
 						<Source Name="MainSource">p_biblioteca.dpr</Source>
 					</Source>
 					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 					</Excluded_Packages>

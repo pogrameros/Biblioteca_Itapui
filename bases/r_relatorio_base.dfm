@@ -1,11 +1,11 @@
 inherited fqr_relatorio_base: Tfqr_relatorio_base
   Caption = 'fqr_relatorio_base'
-  ClientHeight = 238
-  ClientWidth = 740
+  ClientHeight = 209
+  ClientWidth = 604
   Scaled = False
   OnShow = FormShow
-  ExplicitWidth = 756
-  ExplicitHeight = 276
+  ExplicitWidth = 620
+  ExplicitHeight = 247
   PixelsPerInch = 96
   TextHeight = 13
   object QuickRep1: TQuickRep
@@ -398,12 +398,12 @@ inherited fqr_relatorio_base: Tfqr_relatorio_base
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 740
+    Width = 604
     Height = 145
     Align = alTop
     Caption = 'Panel1'
     TabOrder = 4
-    ExplicitWidth = 1193
+    ExplicitWidth = 740
   end
   object tab_master: TZQuery
     Connection = frm_menu.zconn

@@ -5,8 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, rkGlassButton,
-  Vcl.ExtCtrls, QuickRpt, Data.DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, QRCtrls, Vcl.AppEvnts,f_form_base, f_menu;
+  Vcl.ExtCtrls, Data.DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, QRCtrls, Vcl.AppEvnts,f_form_base, f_menu,
+  QuickRpt;
 
 type
   Tfqr_relatorio_base = class(Tfrm_form_base)
