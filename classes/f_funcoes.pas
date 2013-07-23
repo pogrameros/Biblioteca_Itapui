@@ -38,6 +38,8 @@ procedure SubCadastro(Titulo,Tipo_Cadastro : String);
 
 function CampoPreenchido(Componente : TDBEdit) : Boolean;
 
+Procedure PreecheComboboxSubCadastro(Componente : TDBLookupComboBox ; FTipo_Cadastro,FDataField,FKeyField,FListField : String);
+
 implementation
 
 uses f_menu, f_form_busca_base, f_sub_cadastro;
@@ -270,6 +272,30 @@ begin
       Application.MessageBox('Obrigatório Preenchimento.','Aviso',MB_OK);
       Componente.SetFocus;
       Abort;
+   end;
+end;
+
+Procedure PreecheComboboxSubCadastro(Componente : TDBLookupComboBox ; FTipo_Cadastro,FDataField,FKeyField,FListField : String);
+var
+   Tab_combo : TZReadOnlyQuery;
+   dts_combo : TDataSource;
+begin
+   //tabela
+   Tab_combo := TZReadOnlyQuery.Create(nil);
+   Tab_combo.Connection := frm_menu.zconn;
+   Tab_combo.SQL.Add('SELECT * FROM subcadastro WHERE Tipo_Cadastro = ' + FTipo_Cadastro);
+   Tab_combo.Open;
+
+   //datasource
+   dts_combo          := TDataSource.Create(nil);
+   dts_combo.AutoEdit := false;
+   dts_combo.DataSet  := Tab_combo;
+
+   with Componente do begin
+      ListSource := dts_combo;
+      ListField  := FListField;
+      DataField  := FDataField;
+      KeyField   := FKeyField;
    end;
 end;
 

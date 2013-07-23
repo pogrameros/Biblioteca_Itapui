@@ -19,18 +19,17 @@ type
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     edt_titulo: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
-    DBLookupComboBox2: TDBLookupComboBox;
+    cbx_editora: TDBLookupComboBox;
+    cbx_autor: TDBLookupComboBox;
     Label6: TLabel;
-    DBLookupComboBox3: TDBLookupComboBox;
+    cbx_genero: TDBLookupComboBox;
     Label7: TLabel;
     DBEdit4: TDBEdit;
-    DBCheckBox1: TDBCheckBox;
-    DBLookupComboBox4: TDBLookupComboBox;
+    cbx_categoria: TDBLookupComboBox;
     Label8: TLabel;
     Bevel1: TBevel;
     Label9: TLabel;
-    DBLookupComboBox5: TDBLookupComboBox;
+    cbx_fornecedor: TDBLookupComboBox;
     Label10: TLabel;
     DBMemo1: TDBMemo;
     Label11: TLabel;
@@ -44,6 +43,11 @@ type
     NovaEditora1: TMenuItem;
     DBEdit7: TDBEdit;
     Label13: TLabel;
+    Panel3: TPanel;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    tab_editora: TZReadOnlyQuery;
+    DataSource1: TDataSource;
     procedure DBEdit4KeyPress(Sender: TObject; var Key: Char);
     procedure btn_buscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -52,6 +56,7 @@ type
     procedure NovoGnero1Click(Sender: TObject);
     procedure NovoAutor1Click(Sender: TObject);
     procedure NovoFornecedor1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure Salvar;override;
     { Private declarations }
@@ -83,10 +88,36 @@ begin
    ApenasNumeros(DBEdit4,Key);
 end;
 
+procedure Tfrm_cadastro_livros.FormClose(Sender: TObject;var Action: TCloseAction);
+begin
+  inherited;
+//  ReportMemoryLeaksOnShutdown := True;
+end;
+
 procedure Tfrm_cadastro_livros.FormShow(Sender: TObject);
 begin
    inherited;
-   TrocaQuery(tab_principal,'SELECT * FROM Livros');
+   PreecheComboboxSubCadastro(cbx_categoria,'1' ,'Categoria','ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_editora,  '2' ,'Editora','ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_genero,   '3' ,'Genero','ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_autor,    '4' ,'Autor','ID' ,'Descricao');
+
+   with tab_principal do begin
+      SQl.Add(' SELECT');
+      SQL.Add('	Autor.Descricao AS Desc_autor,');
+      SQL.Add('	Editora.Descricao AS Desc_Editora,');
+      SQL.Add('	Genero.Descricao AS Desc_Genero,');
+      SQL.Add('	Categoria.Descricao AS Desc_Categoria,');
+      SQL.Add('	livros.*');
+      SQL.Add(' FROM livros');
+      SQL.Add('	LEFT JOIN subcadastro Autor     ON livros.Autor   = autor.ID');
+      SQL.Add('	LEFT JOIN subcadastro Editora   ON livros.Editora = Editora.ID');
+      SQL.Add('	LEFT JOIN subcadastro Genero    ON livros.Genero    = Genero.ID');
+      SQL.Add('	LEFT JOIN subcadastro Categoria ON livros.Categoria = Categoria.id');
+      Open;
+   end;
+
+
 end;
 
 procedure Tfrm_cadastro_livros.NovaCategoria1Click(Sender: TObject);
