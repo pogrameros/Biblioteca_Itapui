@@ -60,29 +60,32 @@ end;
 
 procedure Tfrm_form_cadastro_base.btn_alterarClick(Sender: TObject);
 begin
-    case AnsiIndexText(btn_alterar.Caption,Caption_Alterar) of
-      //Alterar
-      0 : begin
-         btn_salvar.Enabled := False;
-         btn_alterar.Caption := 'Salvar';
-         btn_apagar.Caption := 'Cancelar';
-         btn_sair.Enabled := False;
-         dbgrid1.Enabled := False;
+    if tab_principal.RecordCount > 0 then begin
+       case AnsiIndexText(btn_alterar.Caption,Caption_Alterar) of
+         //Alterar
+         0 : begin
+            btn_salvar.Enabled := False;
+            btn_alterar.Caption := 'Salvar';
+            btn_apagar.Caption := 'Cancelar';
+            btn_sair.Enabled := False;
+            dbgrid1.Enabled := False;
 
-         tab_principal.Edit;
-      end;
-      //salvar
-      1: begin
-         //metodo abstrato, deve ser implementado apenas na classe filho
-         Salvar;
-         btn_salvar.Enabled := True;
-         btn_alterar.Caption := 'Alterar';
-         btn_apagar.Caption := 'Apagar';
-         btn_sair.Enabled := True;
-         dbgrid1.Enabled := True;
+            tab_principal.Edit;
+         end;
+         //salvar
+         1: begin
+            //metodo abstrato, deve ser implementado apenas na classe filho
+            Salvar;
+            btn_salvar.Enabled := True;
+            btn_alterar.Caption := 'Alterar';
+            btn_apagar.Caption := 'Apagar';
+            btn_sair.Enabled := True;
+            dbgrid1.Enabled := True;
 
-         tab_principal.Post;
-      end;
+            tab_principal.Post;
+            tab_principal.Refresh;
+         end;
+       end;
     end;
 end;
 
@@ -140,6 +143,8 @@ begin
          dbgrid1.Enabled := True;
 
          tab_principal.Post;
+         tab_principal.Refresh;
+         tab_principal.Last;
       end;
     end;
 end;

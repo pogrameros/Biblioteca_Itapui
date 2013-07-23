@@ -56,6 +56,59 @@ inherited frm_cadastro_livros: Tfrm_cadastro_livros
     inherited DBGrid1: TDBGrid
       Width = 788
       Height = 181
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'ID'
+          Title.Caption = 'C'#243'digo'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'referencia'
+          Title.Caption = 'Refer'#234'ncia'
+          Width = 88
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Titulo'
+          Width = 198
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Desc_Editora'
+          Title.Caption = 'Editora'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Desc_autor'
+          Title.Caption = 'Autor'
+          Width = 125
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Desc_Genero'
+          Title.Caption = 'G'#234'nero'
+          Width = 159
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Desc_Categoria'
+          Title.Caption = 'Categoria'
+          Width = 184
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Observacoes'
+          Title.Caption = 'Observa'#231#245'es'
+          Visible = True
+        end>
     end
   end
   inherited Panel2: TPanel
@@ -320,6 +373,7 @@ inherited frm_cadastro_livros: Tfrm_cadastro_livros
     end
   end
   inherited tab_principal: TZQuery
+    UpdateObject = ZupLivros
     Left = 312
     Top = 384
   end
@@ -351,15 +405,9 @@ inherited frm_cadastro_livros: Tfrm_cadastro_livros
       OnClick = NovoFornecedor1Click
     end
   end
-  object tab_editora: TZReadOnlyQuery
-    Connection = frm_menu.zconn
-    Params = <>
-    Left = 32
-    Top = 424
-  end
-  object DataSource1: TDataSource
-    DataSet = tab_editora
-    Left = 32
-    Top = 480
+  object ZupLivros: TZUpdateSQL
+    UseSequenceFieldForRefreshSQL = False
+    Left = 312
+    Top = 440
   end
 end

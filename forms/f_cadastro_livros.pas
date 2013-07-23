@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, f_cadastro_base, Vcl.Menus, Data.DB,
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Vcl.Grids, Vcl.DBGrids,
   rkGlassButton, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Imaging.jpeg, Vcl.Mask,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, ZSqlUpdate;
 
 type
   Tfrm_cadastro_livros = class(Tfrm_form_cadastro_base)
@@ -46,8 +46,7 @@ type
     Panel3: TPanel;
     DBCheckBox1: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
-    tab_editora: TZReadOnlyQuery;
-    DataSource1: TDataSource;
+    ZupLivros: TZUpdateSQL;
     procedure DBEdit4KeyPress(Sender: TObject; var Key: Char);
     procedure btn_buscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -97,10 +96,12 @@ end;
 procedure Tfrm_cadastro_livros.FormShow(Sender: TObject);
 begin
    inherited;
-   PreecheComboboxSubCadastro(cbx_categoria,'1' ,'Categoria','ID' ,'Descricao');
-   PreecheComboboxSubCadastro(cbx_editora,  '2' ,'Editora','ID' ,'Descricao');
-   PreecheComboboxSubCadastro(cbx_genero,   '3' ,'Genero','ID' ,'Descricao');
-   PreecheComboboxSubCadastro(cbx_autor,    '4' ,'Autor','ID' ,'Descricao');
+
+   //adiciona propriedades ao combobox
+   PreecheComboboxSubCadastro(cbx_categoria, '1' ,'Categoria','ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_editora  , '2' ,'Editora'  ,'ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_genero   , '3' ,'Genero'   ,'ID' ,'Descricao');
+   PreecheComboboxSubCadastro(cbx_autor    , '4' ,'Autor'    ,'ID' ,'Descricao');
 
    with tab_principal do begin
       SQl.Add(' SELECT');
@@ -117,7 +118,7 @@ begin
       Open;
    end;
 
-
+   TrataZUpdate(tab_principal,ZupLivros,'livros');
 end;
 
 procedure Tfrm_cadastro_livros.NovaCategoria1Click(Sender: TObject);

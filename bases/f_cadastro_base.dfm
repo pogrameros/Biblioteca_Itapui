@@ -832,7 +832,7 @@ object frm_form_cadastro_base: Tfrm_form_cadastro_base
     BevelKind = bkFlat
     TabOrder = 0
     object btn_salvar: TrkGlassButton
-      Left = 3
+      Left = 5
       Top = 4
       Width = 85
       Height = 32
@@ -971,6 +971,7 @@ object frm_form_cadastro_base: Tfrm_form_cadastro_base
       Height = 218
       Align = alBottom
       DataSource = dts_master
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       TabOrder = 6
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
