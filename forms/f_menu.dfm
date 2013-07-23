@@ -21,7 +21,7 @@ object frm_menu: Tfrm_menu
     Top = 0
     Width = 1127
     Height = 55
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alTop
     TabOrder = 0
     object TabSheet1: TTabSheet
