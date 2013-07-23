@@ -41,7 +41,6 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      ExplicitTop = 32
       ColWidths = (
         110
         249
@@ -105,7 +104,6 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
     Height = 453
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 1
     object Panel5: TPanel
       Left = 1
       Top = 1
@@ -159,7 +157,6 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
       Height = 399
       Align = alRight
       TabOrder = 1
-      ExplicitLeft = 734
       object btn_add: TSpeedButton
         Left = 4
         Top = 3
@@ -215,7 +212,6 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
         Align = alTop
         BevelInner = bvLowered
         TabOrder = 0
-        ExplicitWidth = 719
         object JvDBGrid1: TJvDBGrid
           Left = 2
           Top = 2
@@ -277,9 +273,6 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
         Height = 41
         Align = alBottom
         TabOrder = 2
-        ExplicitLeft = 144
-        ExplicitTop = 344
-        ExplicitWidth = 185
         object btn_cancelar: TrkGlassButton
           Left = 568
           Top = 4
@@ -360,7 +353,7 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
   object tab_principal: TZQuery
     Connection = frm_menu.zconn
     Params = <>
-    Left = 328
-    Top = 56
+    Left = 696
+    Top = 48
   end
 end
