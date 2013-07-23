@@ -11,23 +11,33 @@ uses
 
 type
   Tfrm_locacao_livros = class(Tfrm_form_normal)
-    Panel1: TPanel;
-    Image2: TImage;
-    btn_sair: TrkGlassButton;
     Panel2: TPanel;
-    rkGlassButton1: TrkGlassButton;
     grade_usuarios: TStringGrid;
     tab_principal: TZQuery;
     pn_Livros: TPanel;
-    Panel4: TPanel;
     Panel5: TPanel;
+    Label1: TLabel;
+    edt_pesquisar: TEdit;
+    btn_pesquisar: TrkGlassButton;
+    Panel6: TPanel;
+    btn_add: TSpeedButton;
+    btn_rem: TSpeedButton;
+    Panel7: TPanel;
+    Panel4: TPanel;
     JvDBGrid1: TJvDBGrid;
-    SpeedButton2: TSpeedButton;
-    SpeedButton1: TSpeedButton;
-    Image3: TImage;
-    procedure btn_sairClick(Sender: TObject);
+    Panel3: TPanel;
+    JvDBGrid2: TJvDBGrid;
+    Label2: TLabel;
+    Panel8: TPanel;
+    btn_cancelar: TrkGlassButton;
+    btn_finalizar: TrkGlassButton;
+    btn_sair: TrkGlassButton;
+    btn_confirmar: TrkGlassButton;
+    btn_selecionar: TrkGlassButton;
+    procedure btn_selecionarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure rkGlassButton1Click(Sender: TObject);
+    procedure btn_confirmarClick(Sender: TObject);
+    procedure btn_sairClick(Sender: TObject);
   private
     FUsuario : String;
   public
@@ -44,24 +54,30 @@ implementation
 uses f_funcoes, f_menu;
 
 procedure Tfrm_locacao_livros.btn_sairClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure Tfrm_locacao_livros.btn_selecionarClick(Sender: TObject);
 var
    tab_busca : TZReadOnlyQuery;
 begin
    FUsuario := BuscaDados('Nome;SobreNome;RG,Bairro','Nome;Sobre Nome; Rg; Bairro','usuarios','Usuários');
 
-   tab_busca := TZReadOnlyQuery.Create(nil);
-   with tab_busca do begin
-      Connection := frm_menu.zconn;
-      SQL.Add('SELECT ');
-      SQL.Add('	ID,');
-      SQL.Add('	Concat(Nome ," ",SobreNome) AS Nome_SobreNome,');
-      SQL.Add('	Concat("Rua: ",Rua," nº ",Numero_Casa," Bairro: ",Bairro," - ",Complemento) AS endereco_completo');
-      SQL.Add('FROM usuarios');
-      SQL.Add('	WHERE ID = ' + FUsuario);
-      Open;
-   end;
+   if FUsuario <> '' then begin
 
-   if FUsuario <> '0' then begin
+      tab_busca := TZReadOnlyQuery.Create(nil);
+      with tab_busca do begin
+         Connection := frm_menu.zconn;
+         SQL.Add('SELECT ');
+         SQL.Add('	ID,');
+         SQL.Add('	Concat(Nome ," ",SobreNome) AS Nome_SobreNome,');
+         SQL.Add('	Concat("Rua: ",Rua," nº ",Numero_Casa," Bairro: ",Bairro," - ",Complemento) AS endereco_completo');
+         SQL.Add('FROM usuarios');
+         SQL.Add('	WHERE ID = ' + FUsuario);
+         Open;
+      end;
+
      grade_usuarios.Cells[0,1] := tab_busca.FieldByName('ID').AsString;
      grade_usuarios.Cells[1,1] := tab_busca.FieldByName('Nome_SobreNome').AsString;
      grade_usuarios.Cells[2,1] := tab_busca.FieldByName('endereco_completo').AsString;
@@ -79,7 +95,7 @@ begin
 
 end;
 
-procedure Tfrm_locacao_livros.rkGlassButton1Click(Sender: TObject);
+procedure Tfrm_locacao_livros.btn_confirmarClick(Sender: TObject);
 begin
    if FUsuario <> '0' then begin
       pn_Livros.Enabled := True;

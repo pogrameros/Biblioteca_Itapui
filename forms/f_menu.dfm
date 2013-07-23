@@ -21,17 +21,15 @@ object frm_menu: Tfrm_menu
     Top = 0
     Width = 1127
     Height = 55
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alTop
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Cadastros'
-      ExplicitHeight = 21
     end
     object TabSheet2: TTabSheet
       Caption = 'Movimenta'#231#227'o'
       ImageIndex = 1
-      ExplicitHeight = 28
       object btn_sair: TrkGlassButton
         Left = 3
         Top = 2
@@ -59,7 +57,6 @@ object frm_menu: Tfrm_menu
     object TabSheet3: TTabSheet
       Caption = 'Relat'#243'rios'
       ImageIndex = 2
-      ExplicitHeight = 21
     end
   end
   object StatusBar1: TStatusBar
