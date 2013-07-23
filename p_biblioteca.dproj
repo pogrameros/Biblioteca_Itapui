@@ -123,6 +123,10 @@
 				<Form>frm_sub_cadastro</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
+			<DCCReference Include="forms\f_locacao_livros.pas">
+				<Form>frm_locacao_livros</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

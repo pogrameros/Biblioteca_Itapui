@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls,
-  ZAbstractConnection, ZConnection, Vcl.Buttons, rkGlassButton;
+  ZAbstractConnection, ZConnection, Vcl.Buttons, rkGlassButton, Vcl.Menus;
 
 type
   Tfrm_menu = class(TForm)
@@ -15,7 +15,12 @@ type
     TabSheet3: TTabSheet;
     zconn: TZConnection;
     StatusBar1: TStatusBar;
+    btn_sair: TrkGlassButton;
+    pop_locacoes: TPopupMenu;
+    SaidadeLivros1: TMenuItem;
+    DevoluodeLivros1: TMenuItem;
     procedure FormShow(Sender: TObject);
+    procedure SaidadeLivros1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,13 +33,18 @@ var
 
 implementation
 
-Uses f_funcoes,f_cadastro_livros, r_relatorio_base;
+Uses f_funcoes,f_cadastro_livros, r_relatorio_base, f_locacao_livros;
 
 {$R *.dfm}
 
 procedure Tfrm_menu.FormShow(Sender: TObject);
 begin
    ConectarBanco;
+end;
+
+procedure Tfrm_menu.SaidadeLivros1Click(Sender: TObject);
+begin
+   Application.CreateForm(Tfrm_locacao_livros,frm_locacao_livros);
 end;
 
 end.
