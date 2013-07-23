@@ -16,6 +16,12 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
     Caption = 'Biblioteca - Loca'#231#227'o de Livros'
     ExplicitWidth = 285
   end
+  object Image3: TImage
+    Left = 352
+    Top = 256
+    Width = 105
+    Height = 105
+  end
   object Panel1: TPanel
     Left = 0
     Top = 41
@@ -5625,15 +5631,16 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
       Color = clWhite
       ColorDown = clCream
       ColorFrame = clGray
-      Glossy = True
-      GlossyLevel = 50
+      GlossyLevel = 0
       DropDownAlignment = paLeft
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
+      ShowHint = True
       TabOrder = 0
+      OnClick = btn_sairClick
       SingleBorder = True
     end
     object rkGlassButton1: TrkGlassButton
@@ -5646,15 +5653,16 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
       Color = clWhite
       ColorDown = clCream
       ColorFrame = clGray
-      Glossy = True
-      GlossyLevel = 50
+      GlossyLevel = 0
       DropDownAlignment = paLeft
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
+      ShowHint = True
       TabOrder = 1
+      OnClick = rkGlassButton1Click
       SingleBorder = True
     end
   end
@@ -5690,13 +5698,41 @@ inherited frm_locacao_livros: Tfrm_locacao_livros
         388)
     end
   end
-  object Panel3: TPanel
+  object pn_Livros: TPanel
     Left = 0
     Top = 128
     Width = 784
     Height = 453
     Align = alBottom
     TabOrder = 2
+    object SpeedButton2: TSpeedButton
+      Left = 741
+      Top = 397
+      Width = 40
+      Height = 49
+      Caption = 'X'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 741
+      Top = 76
+      Width = 40
+      Height = 49
+      Caption = '+'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object Panel4: TPanel
       Left = 1
       Top = 70

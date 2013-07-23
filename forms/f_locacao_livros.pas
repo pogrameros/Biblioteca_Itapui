@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, f_form_normal, Vcl.StdCtrls,
   Vcl.Imaging.jpeg, Vcl.ExtCtrls, rkGlassButton, Vcl.Menus, Vcl.Grids, Data.DB,
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Vcl.DBGrids, JvExDBGrids,
-  JvDBGrid;
+  JvDBGrid, Vcl.Buttons;
 
 type
   Tfrm_locacao_livros = class(Tfrm_form_normal)
@@ -18,12 +18,16 @@ type
     rkGlassButton1: TrkGlassButton;
     grade_usuarios: TStringGrid;
     tab_principal: TZQuery;
-    Panel3: TPanel;
+    pn_Livros: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
     JvDBGrid1: TJvDBGrid;
+    SpeedButton2: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    Image3: TImage;
     procedure btn_sairClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure rkGlassButton1Click(Sender: TObject);
   private
     FUsuario : String;
   public
@@ -44,19 +48,20 @@ var
    tab_busca : TZReadOnlyQuery;
 begin
    FUsuario := BuscaDados('Nome;SobreNome;RG,Bairro','Nome;Sobre Nome; Rg; Bairro','usuarios','Usuários');
-   if FUsuario <> '0' then begin
-      tab_busca := TZReadOnlyQuery.Create(nil);
-      with tab_busca do begin
-         Connection := frm_menu.zconn;
-         SQL.Add('SELECT ');
-         SQL.Add('	ID,');
-         SQL.Add('	Concat(Nome ," ",SobreNome) AS Nome_SobreNome,');
-         SQL.Add('	Concat("Rua: ",Rua," nº ",Numero_Casa," Bairro: ",Bairro," - ",Complemento) AS endereco_completo');
-         SQL.Add('FROM usuarios');
-         SQL.Add('	WHERE ID = ' + FUsuario);
-         Open;
-      end;
 
+   tab_busca := TZReadOnlyQuery.Create(nil);
+   with tab_busca do begin
+      Connection := frm_menu.zconn;
+      SQL.Add('SELECT ');
+      SQL.Add('	ID,');
+      SQL.Add('	Concat(Nome ," ",SobreNome) AS Nome_SobreNome,');
+      SQL.Add('	Concat("Rua: ",Rua," nº ",Numero_Casa," Bairro: ",Bairro," - ",Complemento) AS endereco_completo');
+      SQL.Add('FROM usuarios');
+      SQL.Add('	WHERE ID = ' + FUsuario);
+      Open;
+   end;
+
+   if FUsuario <> '0' then begin
      grade_usuarios.Cells[0,1] := tab_busca.FieldByName('ID').AsString;
      grade_usuarios.Cells[1,1] := tab_busca.FieldByName('Nome_SobreNome').AsString;
      grade_usuarios.Cells[2,1] := tab_busca.FieldByName('endereco_completo').AsString;
@@ -72,6 +77,15 @@ begin
   grade_usuarios.Cells[1,0] := 'Nome';
   grade_usuarios.Cells[2,0] := 'Endereço';
 
+end;
+
+procedure Tfrm_locacao_livros.rkGlassButton1Click(Sender: TObject);
+begin
+   if FUsuario <> '0' then begin
+      pn_Livros.Enabled := True;
+
+
+   end;
 end;
 
 end.
