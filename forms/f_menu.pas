@@ -15,10 +15,7 @@ type
     TabSheet3: TTabSheet;
     zconn: TZConnection;
     StatusBar1: TStatusBar;
-    rkGlassButton1: TrkGlassButton;
-    rkGlassButton2: TrkGlassButton;
     procedure FormShow(Sender: TObject);
-    procedure rkGlassButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,11 +35,6 @@ Uses f_funcoes,f_cadastro_livros, r_relatorio_base;
 procedure Tfrm_menu.FormShow(Sender: TObject);
 begin
    ConectarBanco;
-end;
-
-procedure Tfrm_menu.rkGlassButton1Click(Sender: TObject);
-begin
-   Application.CreateForm(Tfrm_cadastro_livros,frm_cadastro_livros);
 end;
 
 end.

@@ -57,43 +57,6 @@ object frm_menu: Tfrm_menu
         Width = 120
       end>
   end
-  object rkGlassButton1: TrkGlassButton
-    Left = 8
-    Top = 55
-    Width = 201
-    Height = 137
-    Caption = 'Glass'
-    Color = clWhite
-    ColorDown = clBlack
-    ColorFrame = clGray
-    GlossyLevel = 37
-    DropDownAlignment = paLeft
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    TabOrder = 2
-    OnClick = rkGlassButton1Click
-  end
-  object rkGlassButton2: TrkGlassButton
-    Left = 552
-    Top = 264
-    Width = 129
-    Height = 105
-    Caption = 'Glass'
-    Color = clWhite
-    ColorDown = clBlack
-    ColorFrame = clGray
-    GlossyLevel = 37
-    DropDownAlignment = paLeft
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    TabOrder = 3
-  end
   object zconn: TZConnection
     ControlsCodePage = cCP_UTF16
     UTF8StringsAsWideField = True
