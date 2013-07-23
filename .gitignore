@@ -1,0 +1,18 @@
+*.dcu
+<<<<<<< HEAD
+/TESTES
+/nome_bunitinho
+/sasasasasa
+
+/TESTES
+sasasasasa
+=======
+*.~*~
+*.local
+*.identcache
+__history
+*.drc
+*.map
+*.exe
+bin/*
+>>>>>>> 0085af8a03a9b4d5eb583d3de2101e8fa922f496
